@@ -1,0 +1,30 @@
+.login-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.form-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.form-div input {
+    width: 100%;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: none;
+}
+.form-div  button{
+    cursor: pointer;
+    transition: all 1s;
+    width: 100%;
+    text-decoration: none;
+}
+.form-div button:hover {
+    scale: 1.1;
+}

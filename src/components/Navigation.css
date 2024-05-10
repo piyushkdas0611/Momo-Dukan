@@ -1,0 +1,58 @@
+/* CSS for the horizontal navigation bar */
+nav {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 1rem;
+  /* Adjust the spacing between navigation items */
+  font-weight: 1;
+}
+
+nav li:last-child {
+  margin-right: 0;
+  /* Remove margin from the last item to avoid extra space */
+}
+
+nav a {
+  text-decoration: none;
+  color: darkgoldenrod;
+  /* Adjust the color of the links */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  /* Adjust the apperance of the links on hover */
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  margin-left: 1rem;
+}
+
+.icon img {
+  height: 50px;
+  width: 50px;
+}
+
+.icon h2 {
+  color: darkgoldenrod;
+}
