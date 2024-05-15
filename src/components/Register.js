@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import "./Login.css";
+import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
-  useEffect(() => {
-    // Apply the CSS to prevent scrolling on component mount
-    document.body.style.overflow = "hidden";
-
-    // Clean up the CSS when the component unmounts
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
+const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -26,26 +16,33 @@ const LoginPage = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleRegister = (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
     axios
-      .post("http://localhost:5000/login", { email, password })
-      .then((result) => {
-        console.log(result);
-        if (result.data === "Success") {
-          navigate("/home");
-        } else {
-          alert("Invalid Credentials");
-        }
+      .post("http://localhost:5000/register", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.error(err);
       });
   };
 
   return (
     <div className="home">
       <div className="container">
-        <div className="login-div">
-          <h2 className="login-header">Login</h2>
-          <form onSubmit={handleLogin}>
+        <div className="register-div">
+          <h2 className="register-header">Register</h2>
+          <form onSubmit={handleRegister}>
             <div className="form-div">
               <label htmlFor="email">Email:</label>
               <input
@@ -67,12 +64,17 @@ const LoginPage = () => {
               />
             </div>
             <div className="form-div">
-              <button type="submit">Login</button>
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                required
+              />
             </div>
-            <div className="ifregister">
-              <p>
-                Didn't have an account? <Link to="/register">create here</Link>
-              </p>
+            <div className="form-div">
+              <button type="submit">Register</button>
             </div>
           </form>
         </div>
@@ -80,4 +82,5 @@ const LoginPage = () => {
     </div>
   );
 };
-export default LoginPage;
+
+export default RegisterPage;
