@@ -1,0 +1,10 @@
+.about {
+    padding: 1rem;
+    background-color: black;
+    color: white;
+}
+
+.about h1, h2 {
+    color: darkgoldenrod;
+    text-align: center;
+}
