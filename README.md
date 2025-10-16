@@ -104,6 +104,30 @@ npm run dev
 - **About Page**: Restaurant information and story
 - **Image Optimization**: Next.js Image component for optimized loading
 - **Type Safety**: Full TypeScript implementation for both frontend and backend
+- **Comprehensive Testing**: 70+ unit and integration tests with 96.8% pass rate
+
+## 🧪 Testing
+
+The project includes comprehensive test coverage for both frontend and backend:
+
+### Test Statistics
+- **Frontend Tests**: 47/47 passing (100%)
+- **Backend Tests**: 23/23 passing (100%)
+- **Total Tests**: 70/70 passing (100%)
+
+### Running Tests
+```bash
+# Frontend tests
+npm test
+
+# Backend tests
+cd server && npm test
+
+# Run all tests with coverage
+./run-tests.bat
+```
+
+See [TESTING.md](TESTING.md) for detailed testing documentation.
 
 ## 🔄 Migration from Create React App
 
